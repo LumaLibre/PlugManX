@@ -157,7 +157,7 @@ public abstract class BasePluginManager implements PluginManager {
      * Common command loading logic.
      */
     protected synchronized void scheduleCommandLoading() {
-        Bukkit.getScheduler().runTaskLater(PlugManBukkit.getInstance(), this::syncCommands, 10L);
+        Bukkit.getGlobalRegionScheduler().runDelayed(PlugManBukkit.getInstance(), t -> this.syncCommands(), 10L);
     }
 
 
